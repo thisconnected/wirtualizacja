@@ -1,0 +1,50 @@
+ Identyfikator   Nazwa     Stan
+----------------------------------------
+ 1               debian1   uruchomiona
+ -               debian2   wyłączone
+ -               debian3   wyłączone
+
+Identyfikator:  1
+Nazwa:          debian1
+UUID:           a37e21d9-3e75-4dca-96b4-ea048519b7c1
+Typ systemu operacyjnego: hvm
+Stan:           uruchomiona
+Procesory:      1
+Czas procesora: 4,6s
+Maksymalna pamięć: 1048576 KiB
+Użyta pamięć: 1048576 KiB
+Trwałe:        tak
+Automatyczne uruchamianie: wyłączenie
+Managed save:   nie
+Model bezpieczeństwa: selinux
+DOI bezpieczeństwa: 0
+Etykieta bezpieczeństwa: system_u:system_r:svirt_t:s0:c366,c866 (enforcing)
+
+Identyfikator:  -
+Nazwa:          debian2
+UUID:           7087f8f6-b519-4c0a-a30a-d67956d3ca82
+Typ systemu operacyjnego: hvm
+Stan:           wyłączone
+Procesory:      1
+Maksymalna pamięć: 1048576 KiB
+Użyta pamięć: 1048576 KiB
+Trwałe:        tak
+Automatyczne uruchamianie: wyłączenie
+Managed save:   nie
+Model bezpieczeństwa: selinux
+DOI bezpieczeństwa: 0
+
+Identyfikator:  -
+Nazwa:          debian3
+UUID:           12ad4140-6493-4929-ba7c-635647180799
+Typ systemu operacyjnego: hvm
+Stan:           wyłączone
+Procesory:      1
+Maksymalna pamięć: 1048576 KiB
+Użyta pamięć: 1048576 KiB
+Trwałe:        tak
+Automatyczne uruchamianie: wyłączenie
+Managed save:   nie
+Model bezpieczeństwa: selinux
+DOI bezpieczeństwa: 0
+
