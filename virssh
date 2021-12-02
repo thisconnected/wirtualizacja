@@ -1,0 +1,57 @@
+#!/bin/bash
+
+error() {
+  echo "$@" 1>&2
+}
+
+if [ $# -ne 1 ]; then
+   error "Usage: $0 <target domain>"
+   exit 1
+fi
+
+virsh --connect qemu:///system domstate $1 2> /dev/null
+retval=$?
+
+if [ $retval -ne 0 ]; then
+    error "Error: domstate unavailable, source domain does not exist?"
+    exit 2
+fi
+
+is_machine_up()
+{
+    virsh --connect qemu:///system domifaddr $1 2> /dev/null
+    
+    retval=$?
+}
+
+is_machine_up $1
+
+get_ip() {
+    IP=`virsh --connect qemu:///system domifaddr $1 | awk '/ipv4/ {print $4}' | awk -F "/" '{print $1}'`
+}
+
+get_ip $1
+
+while [ -z "$IP" ]; do
+    if [ $retval -eq 1 ]; then
+	echo "domain not up"
+	echo "starting domain $1"
+	virsh --connect qemu:///system start $1 2> /dev/null
+    fi
+    get_ip $1
+    echo "waiting for domain $1 to be up, sleeping 5"
+    sleep 5
+done
+      
+
+
+
+
+
+
+
+
+
+
+ssh pusb@$IP
+
