@@ -1,5 +1,8 @@
 #!/bin/bash
 
+DEFAULT=/data/vm/
+
+
 error() {
   echo "$@" 1>&2
 }
@@ -22,6 +25,6 @@ virt-clone \
        --connect qemu:///system \
        --original $1 \
        --name $2 \
-       --file /var/lib/libvirt/images/$2.qcow2
+       --file $DEFAULT$2.qcow2
 
 exit 0

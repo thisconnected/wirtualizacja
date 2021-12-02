@@ -1,6 +1,8 @@
 #!/bin/bash
 
-DEFAULT=/var/lib/libvirt/images/
+DEFAULT=`virsh --connect qemu:///system pool-dumpxml default | awk -F "<|>" '/path/ { print $3}'`
+
+
 
 error() {
   echo "$@" 1>&2
@@ -33,7 +35,8 @@ virt-clone \
        --preserve-data \
        --file $DEFAULT$2.qcow2
 
-
+echo "changing original to read only"
+sudo chmod -w $ORIGINAL
 
 
 
