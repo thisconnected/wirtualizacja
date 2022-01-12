@@ -1,11 +1,14 @@
 #!/bin/bash
 
+OPTIONS=$2
+
 error() {
   echo "$@" 1>&2
 }
 
 if [ $# -ne 1 ]; then
    error "Usage: $0 <target domain>"
+   error "Usage: $0 <target domain> <options>"
    exit 1
 fi
 
@@ -44,14 +47,5 @@ while [ -z "$IP" ]; do
 done
       
 
-
-
-
-
-
-
-
-
-
-ssh pusb@$IP
+ssh pusb@$IP $OPTIONS
 

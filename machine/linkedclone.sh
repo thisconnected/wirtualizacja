@@ -25,7 +25,7 @@ ORIGINAL=`virsh --connect qemu:///system dumpxml $1 | awk -F"[']" '/source file/
 
 echo "$ORIGINAL"
 
-sudo qemu-img create -f qcow2 -b $ORIGINAL $DEFAULT$2.qcow2
+sudo qemu-img create -f qcow2 -F qcow2 -b $ORIGINAL $DEFAULT/$2.qcow2
 
 
 virt-clone \
@@ -33,7 +33,7 @@ virt-clone \
        --original $1 \
        --name $2 \
        --preserve-data \
-       --file $DEFAULT$2.qcow2
+       --file $DEFAULT/$2.qcow2
 
 echo "changing original to read only"
 sudo chmod -w $ORIGINAL
