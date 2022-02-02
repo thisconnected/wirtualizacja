@@ -6,9 +6,8 @@ error() {
   echo "$@" 1>&2
 }
 
-if [ $# -ne 1 ]; then
-   error "Usage: $0 <target domain>"
-   error "Usage: $0 <target domain> <options>"
+if [ $# -ne 2 ]; then
+   error "Usage: $0 <target domain> <file>"
    exit 1
 fi
 
@@ -47,4 +46,4 @@ while [ -z "$IP" ]; do
 done
       
 
-ssh pusb@$IP $OPTIONS
+scp $FILENAME pusb@$IP:~
