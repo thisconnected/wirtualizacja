@@ -3,10 +3,10 @@
 NAME=docker
 
 # prepare machine
-.././linkedclone.sh debian1 $NAME
-./virscp.sh $NAME /scripts/docker-local.sh
-./virscp.sh $NAME /scripts/Dockerfile
+../machine/linkedclone.sh debian1 $NAME
+.././virscp $NAME scripts/docker-local.sh
+.././virscp $NAME Dockerfile
 
 # run local script
-./virssh.sh $NAME -c ./docker-local.sh
+.././virssh $NAME '/bin/bash docker-local.sh'
 

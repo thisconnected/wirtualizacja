@@ -1,13 +1,15 @@
 #!/bin/bash
 
+sudo hostnamectl 
 
 # required packages
-apt-get update
-apt install -qy docker-io
+sudo apt-get update
+sudo apt install -qy docker-io
 
+# prepare
 mkdir docker
 mv Dockerfile docker/
 cd docker
 
-
+# build docker
 docker build .
