@@ -18,11 +18,11 @@ RUN rm -rf /usr/src/scripts
 
 WORKDIR ~
 RUN git clone https://github.com/thisconnected/pracainzynierska
-RUN git checkout qtcore
 
 # compile
 
 WORKDIR ~/pracainzynierska
+RUN git checkout qtcore
 RUN cmake -E make_directory $CWD/build
 RUN cmake .. -G Ninja
 RUN cmake --build .
