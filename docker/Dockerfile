@@ -3,6 +3,8 @@ FROM ubuntu
 
 # preparing environment
 RUN apt-get update
+RUN apt clean
+RUN apt autoremove
 RUN apt install -qy cmake g++ ninja-build git
 
 # clean up
@@ -24,7 +26,7 @@ RUN cmake --build .
 
 # run
 
-RUN ctest --output-on-failure
+CMD ctest --output-on-failure
 
 
 
