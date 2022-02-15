@@ -1,10 +1,12 @@
 # baseimage
 FROM ubuntu
 
+ENV DEBIAN_FRONTEND="noninteractive"
+ENV TZ="Europe/Warsaw"
+
 # preparing environment
 RUN apt-get update
-RUN apt clean
-RUN apt autoremove
+
 RUN apt install -qy cmake g++ ninja-build git
 
 # clean up
@@ -15,7 +17,8 @@ RUN rm -rf /usr/src/scripts
 # clone repo
 
 WORKDIR ~
-RUN git clone git@github.com:thisconnected/pracainzynierska.git
+RUN git clone https://github.com/thisconnected/pracainzynierska
+RUN git checkout qtcore
 
 # compile
 
